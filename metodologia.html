@@ -192,10 +192,10 @@ p.inco {
 	<li><b>Reachability-Distance</b>: di p rispetto ad o è invece è la misura di distanza minima tale per cui p sia direttamente density reachable da o, 
 	se o è un punto di Core nell’ε-vicinato di p. Tale distanza non può mai essere inferiore alla Core-Distance e risulta indefinita qualora non sia un punto di Core.</li>
 	</ul>
-	Sulla base di tali distanze si può calcolare la Local Reachability Distance tramite la seguente formula:<img src="./images/lrd.png"><br>
+	Sulla base di tali distanze si può calcolare la Local Reachability Distance tramite la seguente formula:<img src="./images/lrd.PNG"><br>
 	La Local Reachability Distance è quindi l’inverso della media delle reachability distance dei MinPts più vicini. Per questa definizione è necessario che tutte le Reachability distance siano definite, 
 	pertanto bisogna settare un numero adeguatamente alto di epsilon. 
-	Questa misura è però solamente di appoggio in quanto l’obbiettivo è calcolare, tramite essa, un Outlier Factor da associare a tutte le osservazioni mediante la seguente formula: <img src="./images/OF.png"><br>
+	Questa misura è però solamente di appoggio in quanto l’obbiettivo è calcolare, tramite essa, un Outlier Factor da associare a tutte le osservazioni mediante la seguente formula: <img src="./images/OF.PNG"><br>
 	Calcolato tale OF, è possibile ordinarlo e visualizzarlo graficamente. Sono state utilizzate le funzioni di split per avere delle proposte di taglio. 
 	Una volta presa la decisione sulla soglia, tutte le osservazioni con un OF superiore alla soglia sono state considerate outlier.<br>
 	Questo metodo operativamente ha ottenuto risultati mediocri, risultando poco performante rispetto agli altri 5 metodi in esame. Raggiunge score minori rispetto al DBSCAN, dal quale deriva, 
@@ -228,7 +228,7 @@ p.inco {
 	Il metodo funziona costruendo dei cluster a densità simile, considerando un numero di nearest-neighbour fissato (MinPts). 
 	Le osservazioni nello stesso cluster avranno valore 1. Il MinPts permette di determinare una densità soglia per l’algoritmo di cluster. 
 	La densità dei cluster è però dinamica, infatti cluster diversi possono avere densità differenti. Questa proprietà supera le criticità del DBSCAN nel riconoscimento di cluster tutti a medesima densità.
-	    <br>Il LOF di un oggetto p è: <img src="./images/lof_formula.png" class="w3-center"></h4>
+	    <br>Il LOF di un oggetto p è: <img src="./images/lof_formula.PNG" class="w3-center"></h4>
 	<h4>Dove <i>lrd</i> (local reachability density) è l'inverso della distanza di raggiungibilità media basata sui vicini MinPts (vedi formula in OPTICS).
 	<br>E’ interessante come questo metodo sia in grado di gestire bene dati con molti attributi ed in particolar modo se presenti molte variabili qualitative in classi. 
 	<br>Nella nostra analisi abbiamo deciso di porre il numero MinPts (corrispondente al k del metodo kNN) pari al valor medio tra il logaritmo del numero di osservazioni, 
@@ -322,8 +322,8 @@ p.inco {
 	la determinazione di valori anomali spesso è opportuno settare nu con 0.1. <br>Altre due OCSVM invece sono state implementate seguendo le indicazioni 
 	riportate su un <a href="https://pdfs.semanticscholar.org/863b/faea81ba506ad2ab732540ace542d5904f3f.pdf">paper</a> di riferimento dove si sfruttano le distanze con kNN 
 	e si calcolano le derivate dell’approssimazione del vettore delle distanze medie attraverso una funzione continua per ricostruire i valori dei parametri nu e gamma. 
-	In particolare, i valori di gamma e nu sono: <img src="./images/gamma.png" class="w3-center"><img src="./images/nu.png" class="w3-center">, dove FS è la funzione approssimata e 
-	<img src="./images/xcmax.png" class="w3-center">.<br>
+	In particolare, i valori di gamma e nu sono: <img src="./images/gamma.PNG" class="w3-center"><img src="./images/nu.PNG" class="w3-center">, dove FS è la funzione approssimata e 
+	<img src="./images/xcmax.PNG" class="w3-center">.<br>
 	Il paper consiglia un k uguale a 7 come numero di nearest-neighbourn, ma noi abbiamo voluto testare anche k pari al numero ottimale di vicini
 	trovato attraverso il metodo kNN, precedentemente presentato, che ha raggiunto un AUC più alto.<br>
 	Si sono riscontrati alcuni problemi nel calcolo del valore del parametro nu perché spesso per dataset grandi esso non stava nel 
@@ -370,10 +370,10 @@ p.inco {
 	Per valutare le anomalie si definisce la lunghezza di path, h(x), di ogni punto x che è misurata tramite il numero di nodi che l’osservazione x attraversa in un Isolation Tree dalla radice
 	al nodo terminale in cui questa di trova.
 	Dato un dataset di n istanze, la definizione di average path data nella sezione <i>10.3.3 di B. R. Preiss. Data Structures and Algorithms with Object- Oriented Design Patterns in Java. Wiley, 1999</i>.  
-	<br>Risulta essere: <img src="./images/av_path.png" class="w3-center">
+	<br>Risulta essere: <img src="./images/av_path.PNG" class="w3-center">
 	dove H(i) è il numero armonico che può essere calcolato come ln(i)+0.5772156649 (costante di Eulero).
 	Dato che c(n) è la media di di h(x) dato n, viene usata per normalizzare h(x).<br>
-	L’anomaly score di un’osservazione viene calcolata come:  <img src="./images/anomaly_score.png" class="w3-center">
+	L’anomaly score di un’osservazione viene calcolata come:  <img src="./images/anomaly_score.PNG" class="w3-center">
 	dove E(h(x)) è il valore atteso degli h(x) in ogni iTree.<br>
 	Se l’osservazione ha uno score vicino ad 1 allora è quasi certamente un outlier, se, al contrario, l’osservazione ha uno score molto minore di 0.5, allora è da considerarsi
 	come osservazione normale. Inoltre, se tutte le istanze hanno uno score che è circa 0.5 allora l’intero campione non contiene nessuna distinta anomalia. 
@@ -409,7 +409,7 @@ p.inco {
 </div>
 <div class="w3-center" style="width:100%">
 	<img src="./images/tabella_conclusioni.png"><br>
-	<h4><font face="inconsolata">Potete trovare tutti i dati in questa <a href="https://github.com/AliceGiampino/DMcompetitions">repository github</a>.</font></h4>
+	<h4><font face="inconsolata">Potete trovare tutti i dati in questa <a href="https://github.com/AliceGiampino/SL">repository github</a>.</font></h4>
 </div>
 
 <div class="w3-container" style="padding-bottom:32px;">
