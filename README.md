@@ -1,6 +1,5 @@
 # SL
-SL Project
-
+SL Project visibile al sito: 
 https://alicegiampino.github.io/SL/
 
 Documento di analisi:
